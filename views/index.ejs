@@ -1,3 +1,10 @@
-<% include layout.ejs %>
+<%- contentFor('body') %>
 
-i think this is a body tag
+somebody
+
+
+<% rows.forEach(function(r) { %>
+	
+	<p><%= r.email %></p>
+
+<% }); %>
