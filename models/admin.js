@@ -16,7 +16,7 @@ function admin(){
         if (err) {
         	throw err;
         }
-        res.render('index', { rows : result});;
+        res.render('index', { rows : result});
       });
   };
 }
