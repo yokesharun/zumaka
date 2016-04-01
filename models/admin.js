@@ -10,9 +10,7 @@ var connection = mysql.createConnection({
 
 function admin(){
 	this.get = function(res) {
-	connection.connect();
       connection.query('select * from admins', function(err, result) {
-      	connection.end();
         if (err) {
         	throw err;
         }

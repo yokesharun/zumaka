@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 
 //The 404 Route (ALWAYS Keep this as the last route)
 router.get('*', function(req, res){
-  res.render('404');
+  res.render('extra/404');
 });
 
 
