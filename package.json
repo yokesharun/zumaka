@@ -13,9 +13,12 @@
     "ejs-locals": "^1.0.2",
     "express": "~4.13.1",
     "express-ejs-layouts": "^2.0.0",
+    "express-validator": "^2.20.3",
     "jade": "~1.11.0",
+    "json-store": "0.0.1",
     "morgan": "~1.6.1",
     "nodemailer": "^2.3.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "util": "^0.10.3"
   }
 }

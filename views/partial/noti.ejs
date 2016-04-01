@@ -1,0 +1,22 @@
+
+<% if (typeof flash_success != 'undefined'){ %>
+	<div class="alert alert-success" role="alert">
+		<%= flash_success %>
+       </div>
+<%}%>
+
+<% if (typeof flash_error != 'undefined'){ %>
+		<div class="alert alert-danger" role="alert">
+		<%= flash_error %>
+       </div>
+<% } %>
+
+<% if (typeof flash_errors != 'undefined'){ %>
+	<div class="alert alert-danger" role="alert">
+		<ul>
+			<% console.log(flash_errors); %>
+
+		</ul>
+       </div>
+<% } %>
+
