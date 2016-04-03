@@ -13,18 +13,18 @@ router.get('/settings', function(req, res) {
 
 router.post('/settings-process', function(req, res) {
 
-	req.assert("email_limit", "Enter a Email Limit.");
+	req.assert('email_limit','Invalid Email Limit').notEmpty()
+	   .isInt({ min: 0, max: 2000 }).withMessage('Email limit should be a number and less than 2000');
 
 	var errors = req.validationErrors();
 	  if (errors) {
 	  	res.send(errors);
 	    // res.redirect('back',{flash_errors:errors});
 	    return;
-	  } else {
-
 	  }
-
-	
+	res.json({
+		email_limit: req.body.email_limit,
+	});
 });
 
 
