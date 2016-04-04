@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var admin = require('./../models/admin');
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
 	admin.get(res);
+});
+
+router.get('/add-project', function(req, res) {
+	res.render('add_project');
 });
 
 router.get('/settings', function(req, res) {
@@ -18,13 +22,16 @@ router.post('/settings-process', function(req, res) {
 
 	var errors = req.validationErrors();
 	  if (errors) {
-	  	res.send(errors);
-	    // res.redirect('back',{flash_errors:errors});
+	  	// res.send(errors);
+	  	req.flash('flash_errors', errors)
+	    res.redirect('/settings');
 	    return;
+	  }else{
+
 	  }
-	res.json({
-		email_limit: req.body.email_limit,
-	});
+	// res.json({
+	// 	email_limit: req.body.email_limit,
+	// });
 });
 
 
