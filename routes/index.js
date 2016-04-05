@@ -27,7 +27,7 @@ router.post('/settings-process', function(req, res) {
 	    res.redirect('/settings');
 	    return;
 	  }else{
-		settings.update_limit(res);
+		settings.update_limit(req,res);
 	  }
 });
 

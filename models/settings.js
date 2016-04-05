@@ -19,13 +19,13 @@ function settings(){
       });
   };
 
-    this.update_limit = function(res) {
-      console.log("from settings "+res.body);
-      connection.query('UPDATE settings SET value="'+res.body.email_limit+'" where idsettings=1', function(err, result) {
+    this.update_limit = function(limit,res) {
+      console.log("from settings "+limit);
+      connection.query('UPDATE settings SET value="'+limit.body.email_limit+'" where param="email_limit"', function(err, result) {
         if (err) {
           throw err;
         }
-        req.flash('flash_success', 'Successfully Saved!')
+        limit.flash('flash_success', 'Successfully Saved!')
         res.redirect('/settings');
       });
   };
