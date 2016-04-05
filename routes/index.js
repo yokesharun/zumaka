@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var settings = require('./../models/settings');
+var project = require('./../models/project');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -28,6 +29,21 @@ router.post('/settings-process', function(req, res) {
 	    return;
 	  }else{
 		settings.update_limit(req,res);
+	  }
+});
+
+router.post('/add-project-process', function(req, res) {
+
+	req.assert('project_name','Enter the Project Name').notEmpty();
+
+	var errors = req.validationErrors();
+	  if (errors) {
+	  	// res.send(errors);
+	  	req.flash('flash_errors', errors)
+	    res.redirect('/add-project');
+	    return;
+	  }else{
+		project.add_project(req,res);
 	  }
 });
 
