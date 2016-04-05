@@ -16,6 +16,7 @@
     "express-ejs-layouts": "^2.0.0",
     "express-session": "^1.13.0",
     "express-validator": "^2.20.3",
+    "fs": "0.0.2",
     "jade": "~1.11.0",
     "json-store": "0.0.1",
     "morgan": "~1.6.1",

@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-
+var settings = require('./../models/settings');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-	admin.get(res);
+	settings.get(res);
 });
 
 router.get('/add-project', function(req, res) {
@@ -12,7 +12,7 @@ router.get('/add-project', function(req, res) {
 });
 
 router.get('/settings', function(req, res) {
-	res.render('settings');
+	settings.get_limit(res);
 });
 
 router.post('/settings-process', function(req, res) {
@@ -27,11 +27,8 @@ router.post('/settings-process', function(req, res) {
 	    res.redirect('/settings');
 	    return;
 	  }else{
-
+		settings.update_limit(res);
 	  }
-	// res.json({
-	// 	email_limit: req.body.email_limit,
-	// });
 });
 
 

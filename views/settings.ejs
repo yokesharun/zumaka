@@ -34,7 +34,7 @@
  		<form method="post" action='/settings-process'>
 			  <div class="form-group">
 			    <label for="emaillimit">Email Limit</label>
-			    <input type="number" name="email_limit" class="form-control" id="emaillimit" placeholder="Email Limit (2000)">
+			    <input type="number" value="<%= limit[0].value %>" name="email_limit" class="form-control" id="email_limit" placeholder="Email Limit (2000)">
 			  </div>
 
   			<button type="submit" class="btn btn-default">Submit</button>
