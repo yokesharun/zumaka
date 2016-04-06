@@ -20,6 +20,9 @@ router.post('/settings-process', function(req, res) {
 
 	req.assert('email_limit','Invalid Email Limit').notEmpty()
 	   .isInt({ min: 0, max: 2000 }).withMessage('Email limit should be a number and less than 2000');
+    req.assert('email','Enter the Email').notEmpty();
+    req.assert('email', 'valid email required').isEmail();
+    req.assert('email_password','Enter the Email Password').notEmpty();
 
 	var errors = req.validationErrors();
 	  if (errors) {
