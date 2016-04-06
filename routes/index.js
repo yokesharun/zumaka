@@ -12,6 +12,12 @@ router.get('/add-project', function(req, res) {
 	res.render('add_project');
 });
 
+
+router.get('/list-projects', function(req, res) {
+	res.render('list_projects');
+});
+
+
 router.get('/settings', function(req, res) {
 	settings.get_limit(res);
 });
