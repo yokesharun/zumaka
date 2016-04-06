@@ -4,6 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
+var flash = require('connect-flash');
+var session = require('express-session');
+var uuid = require('uuid');
+
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -22,8 +28,29 @@ app.use(expressLayouts);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session(
+  {
+    cookie: { maxAge: 60000 },
+    genid: function(req) {
+      return uuid.v4()
+    },
+    secret: 'mysecret',
+    resave: false,
+    saveUninitialized: true,
+  }
+));
+
+app.use(flash());
+
+app.use(function(req, res, next){
+  res.locals.flash_errors = req.flash('flash_errors');
+  res.locals.flash_error = req.flash('flash_error');
+  res.locals.flash_success = req.flash('flash_success');
+  next();
+});
 
 app.use('/', routes);
 app.use('/users', users);
@@ -34,6 +61,10 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+
+
+
 
 // error handlers
 
@@ -58,7 +89,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 
 

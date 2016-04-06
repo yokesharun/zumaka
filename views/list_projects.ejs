@@ -1,0 +1,71 @@
+<%- contentFor('body') %>
+
+
+
+<body>
+<div id="wrapper">
+
+<!-- including the nav temp here -->
+
+
+		<% include ./partial/nav.ejs %>
+
+
+
+		 <div id="page-wrapper" class="gray-bg dashbard-1">
+       <div class="content-main">
+ 
+ 	<!--banner-->	
+		     <div class="banner">
+		    	<h2>
+				<a href="/">Dashboard</a>
+				<i class="fa fa-angle-right"></i>
+				<span>List Projects</span>
+				</h2>
+		    </div>
+		<!--//banner-->
+ 	<!--grid-->
+
+ 	<% include ./partial/noti.ejs %>
+           
+           
+           <div class="grid-form">
+	
+
+			<div class="grid-form1">
+           
+           <table class="table table-bordered">
+                <tr>
+                    <th>id</th>
+                    <th>project name</th>
+                    <th>action</th>
+               </tr>
+               
+               <tr>
+                    <td>das</td>
+                    <td>a</td>
+                    <td>a</td>
+               </tr>
+               
+           </table>
+               
+               
+           </div>
+               
+           
+           
+           
+    <% include ./partial/footer.ejs %>
+
+
+		</div>
+		</div>
+		<div class="clearfix"> </div>
+       </div>
+     <!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
+<!---->
+
+</body>
