@@ -51,8 +51,8 @@ router.post('/edit-project-process', function(req, res) {
 });
 
 
-router.get('/list-projects', function(req, res) {
-	project.list_project(req,res);
+router.get('/list-emails', function(req, res) {
+	email.list_emails(req,res);
 });
 
 router.get('/edit-project/:id', function(req, res) {
@@ -87,6 +87,11 @@ router.post('/add-email-process', function(req, res) {
 	  }else{
 		email.add_email_process(req,res);
 	  }
+});
+
+
+router.get('/list-projects', function(req, res) {
+	project.list_project(req,res);
 });
 
 

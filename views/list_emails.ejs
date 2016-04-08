@@ -39,16 +39,21 @@
                 <tr>
                     <th>id</th>
                     <th>Project Name</th>
+                    <th>Customer Name</th>
+                    <th>Customer Email</th>
                     <th>Action</th>
                </tr>
             </thead>
                
             <tbody>
-               <% projects.forEach(function(project) { %>
+               <% emails.forEach(function(email) { %>
                <tr>
-                    <td><%= project.idprojects %></td>
-                    <td><%= project.project_name %></td>
-                    <td><a href="/edit-project/<%= project.idprojects %>">Edit</a> / <a onclick="return confirm('are you sure?')" href="/delete-project/<%= project.idprojects %>">Delete</a></td>
+                    <td><%= email.idemail_chunk %></td>
+                    <td>Name</td>
+                    <td><%= email.customer_name %></td>
+                    <td><%= email.customer_email %></td>
+
+                    <td><a href="/edit-project/<%= email.idemail_chunk %>">Edit</a> / <a onclick="return confirm('are you sure?')" href="/delete-project/<%= email.idemail_chunk %>">Delete</a></td>
                </tr>
                <% }); %>
                    

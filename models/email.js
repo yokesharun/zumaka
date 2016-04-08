@@ -45,12 +45,12 @@ function email(){
 
   };
     
-    this.list_project = function(req,res) {
-      connection.query('select * from projects', function(err, result) {
+    this.list_emails = function(req,res) {
+      connection.query('select * from email_chunk', function(err, result) {
         if (err) {
           throw err;
         }
-        res.render('list_projects', { projects : result});
+        res.render('list_emails', { emails : result});
       });
   };
     
