@@ -17,6 +17,10 @@ router.get('/list-projects', function(req, res) {
 	project.list_project(req,res);
 });
 
+router.get('/edit-project/:id', function(req, res) {
+	project.edit_project(req,res);
+});
+
 
 router.get('/settings', function(req, res) {
 	settings.get_limit(res);
@@ -53,6 +57,22 @@ router.post('/add-project-process', function(req, res) {
 	    return;
 	  }else{
 		project.add_project(req,res);
+	  }
+});
+
+
+router.post('/edit-project-process', function(req, res) {
+
+	req.assert('project_name','Enter the Project Name').notEmpty();
+
+	var errors = req.validationErrors();
+	  if (errors) {
+	  	// res.send(errors);
+	  	req.flash('flash_errors', errors)
+	    res.redirect('/edit-project');
+	    return;
+	  }else{
+		project.edit_project_process(req,res);
 	  }
 });
 

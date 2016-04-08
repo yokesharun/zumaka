@@ -22,12 +22,33 @@ function project(){
 
   };
     
+    this.edit_project_process = function(req,res) {
+
+      connection.query('update projects set project_name="'+req.body.project_name+'" where idprojects="'+req.body.project_id+'"', function(err, result) {
+        if (err) {
+          throw err;
+        }
+        req.flash('flash_success', 'Project Updates')
+        res.redirect('/list-projects');
+      });
+
+  };
+    
     this.list_project = function(req,res) {
       connection.query('select * from projects', function(err, result) {
         if (err) {
           throw err;
         }
         res.render('list_projects', { projects : result});
+      });
+  };
+    
+    this.edit_project = function(req,res) {
+      connection.query('select * from projects where idprojects="'+req.params.id+'"', function(err, result) {
+        if (err) {
+          throw err;
+        }
+        res.render('edit_project', { project : result});
       });
   };
 

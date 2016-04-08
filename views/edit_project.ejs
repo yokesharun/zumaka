@@ -1,0 +1,60 @@
+<%- contentFor('body') %>
+
+
+<body>
+<div id="wrapper">
+
+<!-- including the nav temp here -->
+
+
+		<% include ./partial/nav.ejs %>
+
+
+
+		 <div id="page-wrapper" class="gray-bg dashbard-1">
+       <div class="content-main">
+ 
+ 	<!--banner-->	
+		     <div class="banner">
+		    	<h2>
+				<a href="/">Dashboard</a>
+				<i class="fa fa-angle-right"></i>
+				<span>Edit Project</span>
+				</h2>
+		    </div>
+		<!--//banner-->
+ 	<!--grid-->
+
+ 	<% include ./partial/noti.ejs %>
+
+ 	<div class="grid-form">
+ 		<div class="grid-form1">
+ 		<h3 id="forms-example" class="">Edit Project</h3>
+ 		<form method="post" action="/edit-project-process">
+			  <div class="form-group">
+			    <label for="addproject">Project Name</label>
+			    <input type="text" name="project_name" class="form-control" value="<%= project[0].project_name %>" id="addproject" placeholder="Enter Project Name">
+			  </div>
+            <input type="hidden" value="<%= project[0].idprojects %>" name="project_id">
+
+  			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+</div>
+
+
+
+
+<% include ./partial/footer.ejs %>
+
+
+		</div>
+		</div>
+		<div class="clearfix"> </div>
+       </div>
+     <!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
+<!---->
+
+</body>
