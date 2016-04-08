@@ -14,7 +14,7 @@ router.get('/add-project', function(req, res) {
 
 
 router.get('/list-projects', function(req, res) {
-	res.render('list_projects');
+	project.list_project(req,res);
 });
 
 

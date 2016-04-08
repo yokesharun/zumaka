@@ -35,17 +35,24 @@
 			<div class="grid-form1">
            
            <table class="table table-bordered">
+            <thead>
                 <tr>
                     <th>id</th>
                     <th>project name</th>
                     <th>action</th>
                </tr>
+            </thead>
                
+            <tbody>
+               <% projects.forEach(function(project) { %>
                <tr>
-                    <td>das</td>
-                    <td>a</td>
-                    <td>a</td>
+                    <td><%= project.idprojects %></td>
+                    <td><%= project.project_name %></td>
+                    <td>Delete</td>
                </tr>
+               <% }); %>
+                   
+            </tbody>
                
            </table>
                

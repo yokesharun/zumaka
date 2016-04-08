@@ -21,6 +21,15 @@ function project(){
       });
 
   };
+    
+    this.list_project = function(req,res) {
+      connection.query('select * from projects', function(err, result) {
+        if (err) {
+          throw err;
+        }
+        res.render('list_projects', { projects : result});
+      });
+  };
 
 }
 
