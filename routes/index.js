@@ -21,6 +21,10 @@ router.get('/edit-project/:id', function(req, res) {
 	project.edit_project(req,res);
 });
 
+router.get('/delete-project/:id', function(req, res) {
+	project.delete_project(req,res);
+});
+
 
 router.get('/settings', function(req, res) {
 	settings.get_limit(res);

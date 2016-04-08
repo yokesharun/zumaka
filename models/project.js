@@ -28,7 +28,7 @@ function project(){
         if (err) {
           throw err;
         }
-        req.flash('flash_success', 'Project Updates')
+        req.flash('flash_success', 'Project Updates');
         res.redirect('/list-projects');
       });
 
@@ -49,6 +49,16 @@ function project(){
           throw err;
         }
         res.render('edit_project', { project : result});
+      });
+  };
+    
+    this.delete_project = function(req,res) {
+      connection.query('delete from projects where idprojects="'+req.params.id+'"', function(err, result) {
+        if (err) {
+          throw err;
+        }
+          req.flash('flash_success', 'Project Deleted!');
+            res.redirect('/list-projects');
       });
   };
 
