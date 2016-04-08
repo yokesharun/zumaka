@@ -1,0 +1,58 @@
+CREATE TABLE `zumaka`.`settings` (
+  `idsettings` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `param` VARCHAR(45) NULL COMMENT '',
+  `value` VARCHAR(45) NULL COMMENT '',
+  PRIMARY KEY (`idsettings`)  COMMENT '');
+
+
+  CREATE TABLE `zumaka`.`user` (
+  `iduser` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `name` VARCHAR(45) NULL COMMENT '',
+  `email` VARCHAR(45) NULL COMMENT '',
+  `password` VARCHAR(45) NULL COMMENT '',
+  `picture` VARCHAR(45) NULL COMMENT '',
+  `created_at` DATETIME NULL COMMENT '',
+  PRIMARY KEY (`iduser`)  COMMENT '');
+
+
+CREATE TABLE `zumaka`.`email_template` (
+  `idemail_template` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `template_html` LONGTEXT NULL COMMENT '',
+  `template_css` LONGTEXT NULL COMMENT '',
+  `project_id` INT NULL COMMENT '',
+  PRIMARY KEY (`idemail_template`)  COMMENT '');
+
+
+CREATE TABLE `zumaka`.`projects` (
+  `idprojects` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `project_name` VARCHAR(45) NULL COMMENT '',
+  `project_logo` VARCHAR(45) NULL COMMENT '',
+  `created_at` VARCHAR(45) NULL COMMENT '',
+  PRIMARY KEY (`idprojects`)  COMMENT '');
+
+
+CREATE TABLE `zumaka`.`email_chunk` (
+  `idemail_chunk` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `project_id` INT NULL COMMENT '',
+  `customer_name` VARCHAR(45) NULL COMMENT '',
+  `customer_email` VARCHAR(45) NULL COMMENT '',
+  `created_at` DATETIME NULL COMMENT '',
+  PRIMARY KEY (`idemail_chunk`)  COMMENT '');
+
+
+CREATE TABLE `zumaka`.`email_log` (
+  `idemail_log` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `email_succeed` VARCHAR(45) NULL COMMENT '',
+  `email_failed` VARCHAR(45) NULL COMMENT '',
+  `total_sent` VARCHAR(45) NULL COMMENT '',
+  `project_id` INT NULL COMMENT '',
+  `created_at` VARCHAR(45) NULL COMMENT '',
+  PRIMARY KEY (`idemail_log`)  COMMENT '');
+
+
+CREATE TABLE `zumaka`.`schedule_emails` (
+  `idschedule_emails` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `schedule_date` DATETIME NULL COMMENT '',
+  `sent_status` VARCHAR(45) NULL COMMENT '',
+  `created_at` DATETIME NULL COMMENT '',
+  PRIMARY KEY (`idschedule_emails`)  COMMENT '');

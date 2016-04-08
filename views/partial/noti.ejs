@@ -1,20 +1,23 @@
 
-<% if (typeof flash_success != 'undefined'){ %>
+<% if (flash_success.length > 0){ %>
 	<div class="alert alert-success" role="alert">
 		<%= flash_success %>
        </div>
 <%}%>
 
-<% if (typeof flash_error != 'undefined'){ %>
+<% if (flash_error.length > 0){ %>
 		<div class="alert alert-danger" role="alert">
 		<%= flash_error %>
        </div>
 <% } %>
 
-<% if (typeof flash_errors != 'undefined'){ %>
+<% if (flash_errors.length > 0){ %>
 	<div class="alert alert-danger" role="alert">
 		<ul>
-			<% console.log(flash_errors); %>
+			<!-- <% console.log(flash_errors); %> -->
+			<% for(var i=0; i < flash_errors.length; i++) { %>
+			     <li><%= flash_errors[i].msg %></li>
+			<% } %>
 
 		</ul>
        </div>
