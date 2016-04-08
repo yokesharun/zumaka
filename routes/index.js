@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var settings = require('./../models/settings');
 var project = require('./../models/project');
+var email = require('./../models/email');
+
 
 
 
@@ -66,7 +68,25 @@ router.get('/delete-project/:id', function(req, res) {
 // emails
 
 router.get('/add-email', function(req, res) {
-	res.render('add_email');
+	email.add_email(res);
+});
+
+router.post('/add-email-process', function(req, res) {
+
+	req.assert('project_id','Select the Project Name').notEmpty();
+	req.assert('customer_name','Enter the Customer Name').notEmpty();
+	req.assert('customer_email','Enter the Customer Email').notEmpty();
+
+
+	var errors = req.validationErrors();
+	  if (errors) {
+	  	// res.send(errors);
+	  	req.flash('flash_errors', errors)
+	    res.redirect('/add-email');
+	    return;
+	  }else{
+		email.add_email_process(req,res);
+	  }
 });
 
 
