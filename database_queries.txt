@@ -5,7 +5,7 @@ CREATE TABLE `zumaka`.`settings` (
   PRIMARY KEY (`idsettings`)  COMMENT '');
 
 
-  CREATE TABLE `zumaka`.`user` (
+CREATE TABLE `zumaka`.`user` (
   `iduser` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `name` VARCHAR(45) NULL COMMENT '',
   `email` VARCHAR(45) NULL COMMENT '',
