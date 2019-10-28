@@ -19,7 +19,7 @@
     "fs": "0.0.2",
     "jade": "~1.11.0",
     "json-store": "0.0.1",
-    "morgan": "~1.6.1",
+    "morgan": "~1.9.1",
     "mysql": "^2.10.2",
     "nodemailer": "^2.3.0",
     "sequelize": "^3.22.0",
